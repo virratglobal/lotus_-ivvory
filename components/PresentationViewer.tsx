@@ -319,13 +319,13 @@ export default function PresentationViewer() {
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.4 }}
-                className="flex justify-center px-2 sm:px-6 md:px-10 lg:px-16 min-h-full"
+                className="flex justify-center px-2 sm:px-4 md:px-6 lg:px-8 min-h-full"
               >
                 <div
                   ref={containerRef}
                   className={[
                     "relative w-full flex flex-col items-center",
-                    isFullscreen ? "max-w-[96vw]" : "max-w-5xl",
+                    isFullscreen ? "max-w-[96vw]" : "max-w-[1340px]",
                   ].join(" ")}
                 >
                   {containerWidth > 0 && (
