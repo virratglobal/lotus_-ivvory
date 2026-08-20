@@ -391,31 +391,8 @@ export default function StitchBrandExperience() {
 
       </section>
 
-      {/* Section 08: slide_9_refined_stationery_suite */}
-      <section id="stitch-section-8" className="w-full relative bg-surface text-on-surface antialiased bg-texture relative">
-
-
-
-
-
-
-<main className="flex-grow w-full max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop pt-32 pb-section-gap relative z-10">
-<div className="mb-16">
-<h1 className="font-display-lg text-display-lg text-primary mb-4 tracking-tight">STATIONERY SUITE</h1>
-<p className="font-body-lg text-body-lg text-on-surface-variant max-w-2xl">A cinematic exploration of our bespoke print collateral. Every piece is crafted on premium textured linen, featuring gold foil accents and our signature forest green palette to convey a sense of serene luxury and quiet craftsmanship.</p>
-</div>
-
-<div className="relative w-full aspect-[16/9] bg-surface-container-lowest soft-shadow border border-outline-variant/30 rounded-xl overflow-hidden">
-<img alt="Ivory Lotus Luxury Stationery Suite" className="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA5g-dEsphxl3PjUGgkRpb6ssuWPVpJjtajEIaEQSME3Ao0LMGUx5OSUBYMMlZJYD5JE7Okh4uaQ-ZTEAFyqLdv0m8QgX269QPBzD1z5EmoDkaAwcLolEldMRW2z1KGN6gcnIXeWniZLy70y8r5Rl3OOF0WWgPZemOEHzs_rMC2CJPNhBIoj2p8CKA1L54_FiBivPv4w45eH6jF9Bsj22ioR_Qj9OjS2P5s8P_KY22BBkaHNcHY_L0pEA"/>
-</div>
-</main>
-
-
-
-      </section>
-
-      {/* Section 09: slide_10_packaging_system */}
-      <section id="stitch-section-9" className="w-full relative bg-primary-container text-on-primary-fixed font-body-md relative selection:bg-tertiary-fixed selection:text-tertiary">
+      {/* Section 08: slide_10_packaging_system */}
+      <section id="stitch-section-8" className="w-full relative bg-primary-container text-on-primary-fixed font-body-md relative selection:bg-tertiary-fixed selection:text-tertiary">
 
 
 <nav className="fixed top-0 w-full z-50 flex justify-between items-center px-margin-mobile md:px-margin-desktop py-6 bg-primary-container/90 backdrop-blur-md transition-all duration-500 ease-in-out">
@@ -465,8 +442,8 @@ export default function StitchBrandExperience() {
 
       </section>
 
-      {/* Section 10: slide_11_staff_uniforms */}
-      <section id="stitch-section-10" className="w-full relative bg-background text-on-background antialiased selection:bg-secondary-container selection:text-on-secondary-container">
+      {/* Section 09: slide_11_staff_uniforms */}
+      <section id="stitch-section-9" className="w-full relative bg-background text-on-background antialiased selection:bg-secondary-container selection:text-on-secondary-container">
 
 
 <nav className="fixed top-0 w-full z-50 flex justify-between items-center px-margin-mobile md:px-margin-desktop py-6 bg-background dark:bg-surface transition-all duration-500 ease-in-out flat no shadows">
@@ -517,8 +494,8 @@ export default function StitchBrandExperience() {
 
       </section>
 
-      {/* Section 11: slide_12_digital_presence_website */}
-      <section id="stitch-section-11" className="w-full relative bg-forest text-ivory font-body-md antialiased justify-center items-center py-section-gap relative">
+      {/* Section 10: slide_12_digital_presence_website */}
+      <section id="stitch-section-10" className="w-full relative bg-forest text-ivory font-body-md antialiased justify-center items-center py-section-gap relative">
 
 
 
@@ -615,8 +592,8 @@ export default function StitchBrandExperience() {
 
       </section>
 
-      {/* Section 12: slide_13_mobile_app_ui */}
-      <section id="stitch-section-12" className="w-full relative bg-background text-on-background font-body-md selection:bg-secondary-container selection:text-on-secondary-container">
+      {/* Section 11: slide_13_mobile_app_ui */}
+      <section id="stitch-section-11" className="w-full relative bg-background text-on-background font-body-md selection:bg-secondary-container selection:text-on-secondary-container">
 
 
 <main className="flex-grow flex flex-col items-center justify-center py-section-gap px-margin-mobile md:px-margin-desktop w-full max-w-container-max mx-auto  relative">
@@ -834,8 +811,8 @@ export default function StitchBrandExperience() {
 
       </section>
 
-      {/* Section 13: slide_14_lobby_interior_design */}
-      <section id="stitch-section-13" className="w-full relative bg-background text-on-surface antialiased">
+      {/* Section 12: slide_14_lobby_interior_design */}
+      <section id="stitch-section-12" className="w-full relative bg-background text-on-surface antialiased">
 
 
 
@@ -876,8 +853,8 @@ export default function StitchBrandExperience() {
 
       </section>
 
-      {/* Section 14: slide_15_refined_guest_room_aesthetic */}
-      <section id="stitch-section-14" className="w-full relative bg-background text-on-surface font-body-md antialiased">
+      {/* Section 13: slide_15_refined_guest_room_aesthetic */}
+      <section id="stitch-section-13" className="w-full relative bg-background text-on-surface font-body-md antialiased">
 
 
 <nav className="fixed top-0 w-full z-50 flex justify-between items-center px-margin-mobile md:px-margin-desktop py-6 bg-background dark:bg-surface transition-all duration-500 ease-in-out">
@@ -936,8 +913,8 @@ export default function StitchBrandExperience() {
 
       </section>
 
-      {/* Section 15: slide_16_refined_signage_wayfinding */}
-      <section id="stitch-section-15" className="w-full relative bg-background text-on-background font-body-md antialiased">
+      {/* Section 14: slide_16_refined_signage_wayfinding */}
+      <section id="stitch-section-14" className="w-full relative bg-background text-on-background font-body-md antialiased">
 
 
 
@@ -999,8 +976,8 @@ export default function StitchBrandExperience() {
 
       </section>
 
-      {/* Section 16: slide_17_social_media_presence */}
-      <section id="stitch-section-16" className="w-full relative bg-background text-on-surface font-body-md antialiased">
+      {/* Section 15: slide_17_social_media_presence */}
+      <section id="stitch-section-15" className="w-full relative bg-background text-on-surface font-body-md antialiased">
 
 
 <nav className="fixed top-0 w-full z-50 flex justify-between items-center px-margin-mobile md:px-margin-desktop py-6 bg-background dark:bg-surface transition-all duration-500 ease-in-out">
@@ -1120,8 +1097,8 @@ export default function StitchBrandExperience() {
 
       </section>
 
-      {/* Section 17: slide_18_merchandise_collection */}
-      <section id="stitch-section-17" className="w-full relative bg-background text-on-surface antialiased">
+      {/* Section 16: slide_18_merchandise_collection */}
+      <section id="stitch-section-16" className="w-full relative bg-background text-on-surface antialiased">
 
 
 <nav className="fixed top-0 w-full z-50 flex justify-between items-center px-margin-mobile md:px-margin-desktop py-6 bg-background dark:bg-surface transition-all duration-500 ease-in-out">
@@ -1186,8 +1163,8 @@ export default function StitchBrandExperience() {
 
       </section>
 
-      {/* Section 18: slide_19_refined_property_exterior */}
-      <section id="stitch-section-18" className="w-full relative bg-background text-on-surface antialiased font-body-md">
+      {/* Section 17: slide_19_refined_property_exterior */}
+      <section id="stitch-section-17" className="w-full relative bg-background text-on-surface antialiased font-body-md">
 
 
 <nav className="fixed top-0 w-full z-50 flex justify-between items-center px-margin-mobile md:px-margin-desktop py-6 bg-background dark:bg-surface transition-all duration-500 ease-in-out">
@@ -1226,8 +1203,8 @@ export default function StitchBrandExperience() {
 
       </section>
 
-      {/* Section 19: slide_20_refined_closing_manifesto */}
-      <section id="stitch-section-19" className="w-full relative bg-primary text-surface-bright items-center justify-center relative font-body-md antialiased selection:bg-surface selection:text-primary-container">
+      {/* Section 18: slide_20_refined_closing_manifesto */}
+      <section id="stitch-section-18" className="w-full relative bg-primary text-surface-bright items-center justify-center relative font-body-md antialiased selection:bg-surface selection:text-primary-container">
 
 
 <div className="absolute inset-0 z-0 bg-[url('https://lh3.googleusercontent.com/aida-public/AB6AXuBgla66HYLh-U9pwIn-Qh2NeVu4BP9fr1gYjv9jGpWUixEUwIXdCSFyJNSfuDUj8_dfIKjeADOSZlQsDdyIv_au68KAyrZ65CG5sOe_ghNJFiqYdCr0fRPc6-1-ICMGvmv8h8GXZg7jdmJSrvNn_jQ5m0hDDeMwC0GlojCTw4f3oH86wI0ZvwsGD-Oxd4HOUTKIs5t0QQ2YOARjQPggmXlG4fZHCVbXoYWhkXPesOYI__PXOER9fi3RHg')] bg-cover bg-center bg-no-repeat"></div>
