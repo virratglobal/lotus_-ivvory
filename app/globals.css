@@ -86,6 +86,8 @@ html, body {
   height: 100%;
   margin: 0;
   padding: 0;
+  overflow-x: hidden;
+  -webkit-tap-highlight-color: transparent;
 }
 
 body {
@@ -188,6 +190,56 @@ body {
 .top-margin-mobile { top: 20px; }
 .left-margin-mobile { left: 20px; }
 
+/* Responsive Mobile Overrides (@media max-width 768px) */
+@media (max-width: 768px) {
+  .text-display-lg {
+    font-size: 32px;
+    line-height: 40px;
+    letter-spacing: -0.01em;
+  }
+  .text-display-md {
+    font-size: 26px;
+    line-height: 34px;
+    letter-spacing: -0.01em;
+  }
+  .text-headline-lg {
+    font-size: 22px;
+    line-height: 30px;
+  }
+  .text-headline-md {
+    font-size: 19px;
+    line-height: 26px;
+  }
+  .text-body-lg {
+    font-size: 15px;
+    line-height: 24px;
+  }
+  .p-margin-desktop {
+    padding: 20px;
+  }
+  .px-margin-desktop {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  .py-margin-desktop {
+    padding-top: 36px;
+    padding-bottom: 36px;
+  }
+  .py-section-gap {
+    padding-top: 56px;
+    padding-bottom: 56px;
+  }
+  .mb-section-gap {
+    margin-bottom: 56px;
+  }
+  .top-margin-desktop {
+    top: 16px;
+  }
+  .left-margin-desktop {
+    left: 16px;
+  }
+}
+
 /* Custom Stitch Animations */
 @keyframes fadeIn {
   from { opacity: 0; transform: translateY(10px); }
@@ -205,15 +257,15 @@ body {
 
 /* Custom scrollbar */
 ::-webkit-scrollbar {
-  width: 5px;
-  height: 5px;
+  width: 4px;
+  height: 4px;
 }
 ::-webkit-scrollbar-track {
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(13, 30, 26, 0.15);
-  border-radius: 3px;
+  background: rgba(13, 30, 26, 0.2);
+  border-radius: 2px;
 }
 
 :fullscreen {

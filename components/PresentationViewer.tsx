@@ -5,23 +5,11 @@
  * ──────────────────
  * Dual-Experience Luxury Hospitality Presentation Shell.
  *
- * App Structure:
- * ┌─────────────────────────────────────────────────────────────┐
- * │ Global Header (fixed top-0 z-[100], bg-ivory/95 backdrop)   │
- * │  [Lotus Logo]   [01 BRAND PRESENTATION | 02 BRAND EXP]   [♪ ON/OFF] │
- * └─────────────────────────────────────────────────────────────┘
- * ┌─────────────────────────────────────────────────────────────┐
- * │ Main Scroll Area (pt-14 overflow-y-auto)                    │
- * │  Mode 01: Continuous PDF Presentation                       │
- * │  Mode 02: Native Stitch Webpage Experience                 │
- * └─────────────────────────────────────────────────────────────┘
- *
- * Guarantees:
- *  • Global header ALWAYS stays fixed & visible (z-[100]) above Presentation 02
- *  • User can switch 01 ↔ 02 at any time from anywhere on the page
- *  • Global audio (useAudio) persists uninterrupted across 01 ↔ 02 switching
- *  • Presentation 02 remembers scroll position when returning during session
- *  • Stitch design elements are completely untouched
+ * Mobile Optimized:
+ *  • Responsive top navigation bar with auto-collapsing titles
+ *  • Touch-friendly min-h-[44px] interaction targets
+ *  • Dynamic viewport-based canvas rendering for Presentation 01 (PDF)
+ *  • Responsive font sizes and gap spacings for Presentation 02 (Stitch Webpage)
  */
 
 import {
@@ -134,7 +122,6 @@ export default function PresentationViewer() {
     (newId: string) => {
       if (newId === activeId || isSwitching) return;
 
-      // Save scroll position if leaving Presentation 02
       if (activeId === "presentation-02" && scrollContainerRef.current) {
         stitchScrollPosRef.current = scrollContainerRef.current.scrollTop;
       }
@@ -154,7 +141,6 @@ export default function PresentationViewer() {
         setActiveId(newId);
         setShowScrollHint(true);
 
-        // Restore scroll position when returning to Presentation 02
         if (newId === "presentation-02") {
           setTimeout(() => {
             if (scrollContainerRef.current) {
@@ -226,7 +212,7 @@ export default function PresentationViewer() {
           isFullscreen ? "bg-[#111110]" : "bg-background",
         ].join(" ")}
       >
-        {/* ── Fixed Top Header Navigation (Always Fixed z-[100]) ──── */}
+        {/* ── Fixed Top Header Navigation (Fixed z-[100] with mobile responsive padding) ── */}
         <AnimatePresence>
           {!isFullscreen && (
             <motion.header
@@ -235,14 +221,14 @@ export default function PresentationViewer() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               transition={{ duration: 0.3 }}
-              className="fixed top-0 left-0 right-0 z-[100] flex items-center justify-between px-6 md:px-10 h-14 border-b border-charcoal/[0.08] bg-ivory/95 backdrop-blur-md"
+              className="fixed top-0 left-0 right-0 z-[100] flex items-center justify-between px-3 sm:px-6 md:px-10 h-14 border-b border-charcoal/[0.08] bg-ivory/95 backdrop-blur-md"
             >
               {/* Left: Ivory Lotus logo */}
               <button
                 onClick={() => handleSwitch("presentation-01")}
-                className="flex items-center gap-2.5 focus-visible:outline-none rounded-sm"
+                className="flex items-center gap-1.5 sm:gap-2.5 focus-visible:outline-none rounded-sm min-h-[40px]"
               >
-                <svg viewBox="0 0 120 120" className="w-7 h-7 opacity-70" aria-hidden="true">
+                <svg viewBox="0 0 120 120" className="w-6 h-6 sm:w-7 sm:h-7 opacity-70" aria-hidden="true">
                   <ellipse cx="60" cy="60" rx="6" ry="22" fill="#4A5E4A" opacity="0.18" />
                   <ellipse cx="60" cy="60" rx="6" ry="22" fill="#4A5E4A" opacity="0.18" transform="rotate(45 60 60)" />
                   <ellipse cx="60" cy="60" rx="6" ry="22" fill="#4A5E4A" opacity="0.18" transform="rotate(90 60 60)" />
@@ -254,12 +240,12 @@ export default function PresentationViewer() {
                   <circle cx="60" cy="60" r="6" fill="#4A5E4A" opacity="0.65" />
                   <circle cx="60" cy="60" r="3" fill="#C9A96E" opacity="0.85" />
                 </svg>
-                <span className="hidden sm:block text-[9px] tracking-[0.3em] text-charcoal/70 font-light uppercase">
+                <span className="hidden md:block text-[9px] tracking-[0.3em] text-charcoal/70 font-light uppercase">
                   Ivory Lotus
                 </span>
               </button>
 
-              {/* Center: Presentation Switcher (01 ↔ 02) */}
+              {/* Center: Presentation Switcher */}
               <div className="absolute left-1/2 -translate-x-1/2">
                 <PresentationSwitcher
                   presentations={PRESENTATIONS}
@@ -270,11 +256,11 @@ export default function PresentationViewer() {
               </div>
 
               {/* Right: Private label · Sound toggle · Fullscreen */}
-              <div className="flex items-center gap-3.5">
-                <span className="hidden md:block text-[8px] tracking-[0.32em] text-charcoal/30 font-light uppercase">
+              <div className="flex items-center gap-1.5 sm:gap-3">
+                <span className="hidden lg:block text-[8px] tracking-[0.32em] text-charcoal/30 font-light uppercase">
                   Private Presentation
                 </span>
-                <span className="hidden md:block w-px h-3 bg-charcoal/10" />
+                <span className="hidden lg:block w-px h-3 bg-charcoal/10" />
 
                 {/* Audio toggle — GLOBAL SOUND ON / SOUND OFF */}
                 <button
@@ -282,14 +268,14 @@ export default function PresentationViewer() {
                   aria-label={isAudioPlaying ? "Turn sound off" : "Turn sound on"}
                   aria-pressed={isAudioPlaying}
                   className={[
-                    "flex items-center gap-1.5 transition-all duration-300",
-                    "focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-charcoal/15 rounded-sm px-1 py-0.5",
-                    isAudioPlaying ? "opacity-75 hover:opacity-100" : "opacity-35 hover:opacity-65",
+                    "flex items-center gap-1 sm:gap-1.5 transition-all duration-300 min-h-[40px] px-1.5 py-1",
+                    "focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-charcoal/15 rounded-sm",
+                    isAudioPlaying ? "opacity-85 hover:opacity-100" : "opacity-40 hover:opacity-75",
                   ].join(" ")}
                 >
                   <span
                     className={[
-                      "text-[9px] leading-none transition-colors duration-300 select-none",
+                      "text-[10px] leading-none transition-colors duration-300 select-none",
                       isAudioPlaying ? "text-botanical font-bold" : "text-charcoal/60",
                     ].join(" ")}
                     aria-hidden="true"
@@ -298,7 +284,7 @@ export default function PresentationViewer() {
                   </span>
                   <span
                     className={[
-                      "text-[8px] tracking-[0.28em] font-light uppercase transition-colors duration-300",
+                      "text-[8px] tracking-[0.24em] font-light uppercase transition-colors duration-300",
                       isAudioPlaying ? "text-charcoal/90 font-medium" : "text-charcoal/45",
                     ].join(" ")}
                   >
@@ -306,12 +292,12 @@ export default function PresentationViewer() {
                   </span>
                 </button>
 
-                <span className="w-px h-3 bg-charcoal/10" />
+                <span className="hidden sm:block w-px h-3 bg-charcoal/10" />
 
                 <button
                   onClick={toggleFullscreen}
                   aria-label="Enter fullscreen"
-                  className="opacity-35 hover:opacity-75 transition-opacity duration-200 p-1 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-charcoal/20 rounded-sm"
+                  className="hidden sm:flex opacity-35 hover:opacity-75 transition-opacity duration-200 p-1.5 min-h-[40px] items-center justify-center focus-visible:outline-none rounded-sm"
                 >
                   <Maximize2 size={12} className="text-charcoal" strokeWidth={1.5} />
                 </button>
@@ -325,6 +311,7 @@ export default function PresentationViewer() {
           ref={scrollContainerRef}
           onScroll={handleScroll}
           className="flex-1 pt-14 overflow-y-auto overflow-x-hidden scroll-smooth w-full h-full"
+          style={{ WebkitOverflowScrolling: "touch" }}
         >
           <AnimatePresence mode="wait">
             {isPdfMode ? (
@@ -335,13 +322,13 @@ export default function PresentationViewer() {
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.4 }}
-                className="flex justify-center px-4 md:px-10 lg:px-16 min-h-full"
+                className="flex justify-center px-2 sm:px-6 md:px-10 lg:px-16 min-h-full"
               >
                 <div
                   ref={containerRef}
                   className={[
                     "relative w-full flex flex-col items-center",
-                    isFullscreen ? "max-w-[94vw]" : "max-w-5xl",
+                    isFullscreen ? "max-w-[96vw]" : "max-w-5xl",
                   ].join(" ")}
                 >
                   {containerWidth > 0 && (
@@ -373,7 +360,7 @@ export default function PresentationViewer() {
         </div>
 
         {/* ── Floating Controls (Page Counter for PDF & Back to Top) ── */}
-        <div className="fixed bottom-6 left-1/2 -translate-x-1/2 z-30 flex items-center gap-4 px-4 py-2 rounded-full bg-ivory/80 md:bg-ivory/90 backdrop-blur-md border border-charcoal/10 shadow-sm">
+        <div className="fixed bottom-4 sm:bottom-6 left-1/2 -translate-x-1/2 z-30 flex items-center gap-3 sm:gap-4 px-3 sm:px-4 py-1.5 sm:py-2 rounded-full bg-ivory/85 md:bg-ivory/90 backdrop-blur-md border border-charcoal/10 shadow-sm">
           {isPdfMode && !isLoading && (
             <div className="flex items-baseline gap-1.5 px-2">
               <span className="text-[10px] tracking-[0.14em] text-charcoal/70 font-light tabular-nums">
@@ -396,7 +383,7 @@ export default function PresentationViewer() {
             <button
               onClick={scrollToTop}
               aria-label="Scroll to top"
-              className="flex items-center justify-center p-1 text-charcoal/50 hover:text-charcoal transition-colors duration-200"
+              className="flex items-center justify-center p-1.5 text-charcoal/50 hover:text-charcoal transition-colors duration-200 min-h-[32px] min-w-[32px]"
             >
               <ArrowUp size={12} strokeWidth={1.5} />
             </button>
@@ -406,7 +393,7 @@ export default function PresentationViewer() {
             <button
               onClick={toggleFullscreen}
               aria-label="Exit fullscreen"
-              className="flex items-center justify-center p-1 text-charcoal/50 hover:text-charcoal transition-colors duration-200"
+              className="flex items-center justify-center p-1.5 text-charcoal/50 hover:text-charcoal transition-colors duration-200 min-h-[32px] min-w-[32px]"
             >
               <Minimize2 size={12} strokeWidth={1.5} />
             </button>
@@ -422,7 +409,7 @@ export default function PresentationViewer() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0, y: 4 }}
               transition={{ delay: 1.2, duration: 0.7 }}
-              className="fixed bottom-20 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 pointer-events-none z-20"
+              className="fixed bottom-16 sm:bottom-20 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 pointer-events-none z-20"
             >
               <span className="text-[7px] tracking-[0.38em] text-charcoal/30 font-light uppercase">
                 Scroll to explore
@@ -434,27 +421,6 @@ export default function PresentationViewer() {
               >
                 ↓
               </motion.span>
-            </motion.div>
-          )}
-        </AnimatePresence>
-
-        {/* ── Fullscreen switcher overlay ─────────────────── */}
-        <AnimatePresence>
-          {isFullscreen && (
-            <motion.div
-              key="fs-switcher"
-              initial={{ opacity: 0, y: -6 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -6 }}
-              transition={{ duration: 0.35 }}
-              className="fixed top-5 left-1/2 -translate-x-1/2 z-[110]"
-            >
-              <PresentationSwitcher
-                presentations={PRESENTATIONS}
-                activeId={activeId}
-                onSwitch={handleSwitch}
-                disabled={isSwitching}
-              />
             </motion.div>
           )}
         </AnimatePresence>

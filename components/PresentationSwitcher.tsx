@@ -22,7 +22,7 @@ export default function PresentationSwitcher({
   return (
     <nav
       aria-label="Presentation selector"
-      className="relative flex items-stretch border border-charcoal/[0.10] bg-ivory/80"
+      className="relative flex items-stretch border border-charcoal/[0.10] bg-ivory/80 rounded-sm"
       style={{ backdropFilter: "blur(8px)" }}
     >
       {/* Sliding active indicator */}
@@ -47,7 +47,7 @@ export default function PresentationSwitcher({
             aria-pressed={isActive}
             aria-label={`Switch to ${p.title}`}
             className={[
-              "relative flex items-center gap-2.5 px-5 py-2.5",
+              "relative flex items-center gap-1.5 sm:gap-2.5 px-2.5 sm:px-5 py-2 sm:py-2.5 min-h-[40px] sm:min-h-[44px]",
               "transition-colors duration-300 select-none",
               "focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-charcoal/20",
               i < presentations.length - 1 ? "border-r border-charcoal/[0.08]" : "",
@@ -57,8 +57,8 @@ export default function PresentationSwitcher({
             {/* Number */}
             <span
               className={[
-                "font-light tabular-nums text-[9px] tracking-[0.22em] transition-colors duration-350",
-                isActive ? "text-charcoal/55" : "text-charcoal/28",
+                "font-light tabular-nums text-[9px] sm:text-[9px] tracking-[0.18em] sm:tracking-[0.22em] transition-colors duration-350",
+                isActive ? "text-charcoal/70" : "text-charcoal/30",
               ].join(" ")}
             >
               {String(i + 1).padStart(2, "0")}
@@ -72,14 +72,15 @@ export default function PresentationSwitcher({
               ].join(" ")}
             />
 
-            {/* Title */}
+            {/* Full title on desktop, compact on mobile */}
             <span
               className={[
-                "text-[9px] tracking-[0.20em] uppercase font-light whitespace-nowrap transition-colors duration-350",
-                isActive ? "text-charcoal" : "text-charcoal/38",
+                "text-[8px] sm:text-[9px] tracking-[0.16em] sm:tracking-[0.20em] uppercase font-light whitespace-nowrap transition-colors duration-350",
+                isActive ? "text-charcoal font-medium" : "text-charcoal/40",
               ].join(" ")}
             >
-              {p.shortTitle}
+              <span className="hidden sm:inline">{p.shortTitle}</span>
+              <span className="sm:hidden">{i === 0 ? "PDF DECK" : "BRAND EXP"}</span>
             </span>
           </button>
         );
