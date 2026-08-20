@@ -5,11 +5,11 @@
  * ──────────────────
  * Dual-Experience Luxury Hospitality Presentation Shell.
  *
- * Mobile Optimized:
+ * Mobile & Desktop Optimized:
  *  • Responsive top navigation bar with auto-collapsing titles
  *  • Touch-friendly min-h-[44px] interaction targets
  *  • Dynamic viewport-based canvas rendering for Presentation 01 (PDF)
- *  • Responsive font sizes and gap spacings for Presentation 02 (Stitch Webpage)
+ *  • Proportional 1440px desktop container scale for Presentation 02 (Stitch Webpage)
  */
 
 import {
@@ -351,9 +351,11 @@ export default function PresentationViewer() {
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.4 }}
-                className="w-full min-h-full"
+                className="w-full min-h-full flex justify-center bg-background"
               >
-                <StitchBrandExperience />
+                <div className="w-full max-w-[1440px] min-h-full relative shadow-sm">
+                  <StitchBrandExperience />
+                </div>
               </motion.div>
             )}
           </AnimatePresence>
