@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import BrandFilmSection from "./BrandFilmSection";
 
 export default function StitchBrandExperience() {
   return (
@@ -1243,6 +1244,9 @@ export default function StitchBrandExperience() {
 
 
       </section>
+
+      {/* Final Video Section */}
+      <BrandFilmSection />
     </div>
   );
 }
