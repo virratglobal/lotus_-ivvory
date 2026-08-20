@@ -82,6 +82,19 @@ export default function PresentationViewer() {
     return () => ro.disconnect();
   }, [isFullscreen]);
 
+  // Ensure web fonts are fully loaded before finalizing layout measurements
+  useEffect(() => {
+    if (typeof document !== "undefined" && document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(() => {
+        const el = containerRef.current;
+        if (el) {
+          const w = el.getBoundingClientRect().width;
+          if (w > 0) setContainerWidth(w);
+        }
+      });
+    }
+  }, []);
+
   // Handle scroll events in main viewport
   const handleScroll = useCallback(() => {
     const container = scrollContainerRef.current;
