@@ -28,6 +28,9 @@ async function loadDoc(
     url: file,
     cMapUrl: "https://cdn.jsdelivr.net/npm/pdfjs-dist@latest/cmaps/",
     cMapPacked: true,
+    standardFontDataUrl: "https://cdn.jsdelivr.net/npm/pdfjs-dist@latest/standard_fonts/",
+    disableFontFace: false,
+    useSystemFonts: false,
   });
   if (onProgress) {
     task.onProgress = (d: { loaded: number; total: number }) => {
@@ -99,6 +102,10 @@ function ContinuousPDFPage({
   const renderCanvas = useCallback(async () => {
     if (!shouldRender || !canvasRef.current || containerWidth <= 0) return;
 
+    if (typeof document !== "undefined" && document.fonts && document.fonts.ready) {
+      await document.fonts.ready;
+    }
+
     if (renderTaskRef.current) {
       try {
         await renderTaskRef.current.cancel();
@@ -120,6 +127,9 @@ function ContinuousPDFPage({
       const canvas = canvasRef.current;
       const ctx = canvas.getContext("2d");
       if (!ctx) return;
+
+      ctx.imageSmoothingEnabled = true;
+      ctx.imageSmoothingQuality = "high";
 
       const cssHeight = Math.floor(vp.height / dpr);
 
