@@ -1164,48 +1164,8 @@ export default function StitchBrandExperience() {
 
       </section>
 
-      {/* Section 17: slide_19_refined_property_exterior */}
-      <section id="stitch-section-17" className="w-full relative bg-background text-on-surface antialiased font-body-md">
-
-
-<nav className="fixed top-0 w-full z-50 flex justify-between items-center px-margin-mobile md:px-margin-desktop py-6 bg-background dark:bg-surface transition-all duration-500 ease-in-out">
-<div className="flex items-center gap-4">
-<span className="font-headline-md text-headline-md tracking-widest text-primary dark:text-on-surface uppercase">Ivory Lotus Hotels &amp; Resorts</span>
-</div>
-<div className="hidden md:flex gap-8 items-center">
-
-<span className="material-symbols-outlined text-primary cursor-pointer hover:text-primary-container transition-colors duration-300">more_horiz</span>
-</div>
-</nav>
-
-<main className="relative w-full min-h-screen flex items-center justify-center  bg-primary-container">
-
-<div className="absolute inset-0 w-full h-full parallax-bg" data-alt="A highly cinematic, awe-inspiring wide-angle shot of the Ivory Lotus flagship hotel exterior at twilight. The grand, modern luxury architecture features sweeping organic lines and expansive glass panels reflecting warm, inviting gold interior lighting. The scene is framed by elegant palm trees swaying gently against a deep teal and indigo evening sky. A pristine, sweeping arrival driveway leads up to a brilliantly illuminated entrance, exuding exclusivity, tranquility, and prestige." style={{ "backgroundImage": "url(\"https://lh3.googleusercontent.com/aida-public/AB6AXuDdXKMoYrmCvxyLiWcuqvIC1oWNYWwNWFWRGY7CeCIkLyRIyFy9KfPg5GHOrBSt9SBmYn7xWkaN5K0JNNBddl8t5nN6lydxKSOjDMYRlBpSf0HaEeq8loYmcmmdmM9zkIEmMHpjdoJfg9blxebbx5W_dVFdBzuPZ4nmsDMPnoIAgnC6WkoKWROY83ze-zslzKxX2JEW4O1urku0CLIJ1hyr9W69CV0uZFr520fZdoFU9_lvoglg8LCIqg\")" }}>
-
-<div className="absolute inset-0 bg-gradient-to-t from-primary/80 via-primary/20 to-transparent"></div>
-</div>
-
-<div className="relative z-10 flex flex-col items-center justify-center text-center px-margin-mobile md:px-margin-desktop mt-20">
-
-<div className="mb-8 w-64 md:w-96 drop-shadow-2xl opacity-90 transition-opacity duration-1000 ease-in" id="logo-container">
-<img alt="Ivory Lotus Logo" className="w-full h-auto object-contain" src="https://lh3.googleusercontent.com/aida/AP1WRLsJ17nwPzM7T_Ct2VkjX6aWSr3fR0WjLaLPzeS8mIpBg7fqxir5zKdz50v7sR8GICq_-sTnuVhK9X_PSLzy97R8WW4a9oMVLKmlW0GKsEX3R96DrTuikEhGe99Rjs-5s138vDbk006AeLVO3wN1kUQmtZA1cgzO9xjtsbo6JNOU8z7_akWTwvm-sV3GG35auRSouUNDRqGM_ZZBNKsfJjT89x3VZNiqzkfd9jV5c3md3wb8iVimpSN7ZG0" />
-</div>
-
-<h1 className="font-headline-md text-headline-md text-on-primary tracking-widest uppercase max-w-2xl mx-auto transition-all duration-1000 delay-300 ease-out" id="hero-heading">Ivory Lotus — A World of Its Own.</h1>
-</div>
-</main>
-
-
-
-
-
-
-
-
-      </section>
-
-      {/* Section 18: slide_20_refined_closing_manifesto */}
-      <section id="stitch-section-18" className="w-full relative bg-primary text-surface-bright items-center justify-center relative font-body-md antialiased selection:bg-surface selection:text-primary-container">
+      {/* Section 17: slide_20_refined_closing_manifesto */}
+      <section id="stitch-section-17" className="w-full relative bg-primary text-surface-bright items-center justify-center relative font-body-md antialiased selection:bg-surface selection:text-primary-container">
 
 
 <div className="absolute inset-0 z-0 bg-[url('https://lh3.googleusercontent.com/aida-public/AB6AXuBgla66HYLh-U9pwIn-Qh2NeVu4BP9fr1gYjv9jGpWUixEUwIXdCSFyJNSfuDUj8_dfIKjeADOSZlQsDdyIv_au68KAyrZ65CG5sOe_ghNJFiqYdCr0fRPc6-1-ICMGvmv8h8GXZg7jdmJSrvNn_jQ5m0hDDeMwC0GlojCTw4f3oH86wI0ZvwsGD-Oxd4HOUTKIs5t0QQ2YOARjQPggmXlG4fZHCVbXoYWhkXPesOYI__PXOER9fi3RHg')] bg-cover bg-center bg-no-repeat"></div>
