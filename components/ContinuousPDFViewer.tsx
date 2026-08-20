@@ -229,7 +229,7 @@ function Presentation01VideoCard({
         loop
         muted
         playsInline
-        className="w-full h-full object-cover"
+        className="w-full h-full object-contain object-center bg-[#0d1e1a]"
       />
 
       {/* Gradient vignette */}

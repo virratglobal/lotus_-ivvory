@@ -42,7 +42,7 @@ export default function BrandFilmSection() {
         </div>
 
         {/* Video Container */}
-        <div className="relative w-full aspect-[16/9] max-h-[80vh] bg-black/40 rounded-xl overflow-hidden shadow-2xl border border-outline-variant/20 group">
+        <div className="relative w-full aspect-[16/9] max-h-[85vh] bg-[#0d1e1a] rounded-xl overflow-hidden shadow-2xl border border-outline-variant/20 group flex items-center justify-center">
           <video
             ref={videoRef}
             src="/video/brand-film.mp4"
@@ -50,7 +50,7 @@ export default function BrandFilmSection() {
             loop
             muted
             playsInline
-            className="w-full h-full object-cover"
+            className="w-full h-full object-contain object-center bg-[#0d1e1a]"
           />
 
           {/* Vignette Gradient Overlay */}
