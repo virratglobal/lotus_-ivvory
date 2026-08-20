@@ -241,7 +241,7 @@ export default function PresentationViewer() {
                   <circle cx="60" cy="60" r="3" fill="#C9A96E" opacity="0.85" />
                 </svg>
                 <span className="hidden md:block text-[9px] tracking-[0.3em] text-charcoal/70 font-light uppercase">
-                  Ivvory Lotus
+                  Ivorry Lotus
                 </span>
               </button>
 

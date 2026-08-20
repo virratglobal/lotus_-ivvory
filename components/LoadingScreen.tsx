@@ -39,7 +39,7 @@ export default function LoadingScreen({ visible, progress }: LoadingScreenProps)
             {/* Brand name */}
             <div className="flex flex-col items-center gap-1">
               <span className="text-[11px] tracking-[0.35em] text-charcoal/70 font-light uppercase">
-                Ivvory Lotus
+                Ivorry Lotus
               </span>
               <span className="text-[9px] tracking-[0.28em] text-charcoal/35 font-light uppercase">
                 Luxury Hospitality

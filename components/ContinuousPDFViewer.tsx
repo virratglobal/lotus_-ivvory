@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState, useCallback } from "react";
+import { Play, Pause, Volume2, VolumeX } from "lucide-react";
 
 type PDFDoc = import("pdfjs-dist").PDFDocumentProxy;
 type RenderTask = import("pdfjs-dist").RenderTask;
@@ -60,12 +61,11 @@ function ContinuousPDFPage({
   const [shouldRender, setShouldRender] = useState(false);
   const [isRendered, setIsRendered] = useState(false);
 
-  // 1. Intersection Observer for lazy rendering & page visibility tracking
+  // Intersection Observer for lazy rendering & page visibility tracking
   useEffect(() => {
     const el = containerRef.current;
     if (!el) return;
 
-    // Render observer (with 600px margin before entering viewport)
     const renderObserver = new IntersectionObserver(
       (entries) => {
         const [entry] = entries;
@@ -76,7 +76,6 @@ function ContinuousPDFPage({
       { rootMargin: "600px 0px 600px 0px" }
     );
 
-    // Active page indicator observer (when page takes up significant viewport area)
     const activeObserver = new IntersectionObserver(
       (entries) => {
         const [entry] = entries;
@@ -96,7 +95,7 @@ function ContinuousPDFPage({
     };
   }, [pageNumber, onVisible]);
 
-  // 2. Render logic using PDF.js when shouldRender becomes true or width changes
+  // Render logic using PDF.js
   const renderCanvas = useCallback(async () => {
     if (!shouldRender || !canvasRef.current || containerWidth <= 0) return;
 
@@ -170,7 +169,6 @@ function ContinuousPDFPage({
         aria-label={`Slide ${pageNumber}`}
       />
 
-      {/* Placeholder before rendering */}
       {!isRendered && (
         <div className="absolute inset-0 flex items-center justify-center bg-ivory-dark/30 animate-pulse">
           <span className="text-[9px] tracking-[0.25em] text-charcoal/20 uppercase font-light">
@@ -178,6 +176,95 @@ function ContinuousPDFPage({
           </span>
         </div>
       )}
+    </div>
+  );
+}
+
+function Presentation01VideoCard({
+  containerWidth,
+  aspectRatio,
+}: {
+  containerWidth: number;
+  aspectRatio: number;
+}) {
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [isPlaying, setIsPlaying] = useState(true);
+  const [isMuted, setIsMuted] = useState(true);
+
+  const togglePlay = () => {
+    if (!videoRef.current) return;
+    if (isPlaying) {
+      videoRef.current.pause();
+      setIsPlaying(false);
+    } else {
+      videoRef.current.play();
+      setIsPlaying(true);
+    }
+  };
+
+  const toggleMute = () => {
+    if (!videoRef.current) return;
+    videoRef.current.muted = !isMuted;
+    setIsMuted(!isMuted);
+  };
+
+  const calculatedHeight =
+    containerWidth > 0 && aspectRatio > 0
+      ? containerWidth / aspectRatio
+      : undefined;
+
+  return (
+    <div
+      className="relative w-full shadow-[0_8px_35px_rgba(0,0,0,0.12)] rounded-sm overflow-hidden bg-[#0d1e1a] text-white transition-all duration-500 border border-charcoal/10"
+      style={{
+        width: containerWidth > 0 ? `${containerWidth}px` : "100%",
+        height: calculatedHeight ? `${calculatedHeight}px` : "auto",
+        aspectRatio: aspectRatio > 0 ? `${aspectRatio}` : "16/9",
+      }}
+    >
+      <video
+        ref={videoRef}
+        src="/video/brand-film.mp4"
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="w-full h-full object-cover"
+      />
+
+      {/* Gradient vignette */}
+      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/30 pointer-events-none" />
+
+      {/* Controls Bar */}
+      <div className="absolute bottom-4 left-4 right-4 sm:bottom-6 sm:left-6 sm:right-6 flex items-center justify-between z-10">
+        <div className="flex items-center gap-2.5">
+          <button
+            onClick={togglePlay}
+            aria-label={isPlaying ? "Pause video" : "Play video"}
+            className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-ivory/90 hover:bg-white text-charcoal flex items-center justify-center backdrop-blur-md transition-all duration-300 shadow-md focus-visible:outline-none"
+          >
+            {isPlaying ? (
+              <Pause size={14} fill="currentColor" />
+            ) : (
+              <Play size={14} className="ml-0.5" fill="currentColor" />
+            )}
+          </button>
+
+          <button
+            onClick={toggleMute}
+            aria-label={isMuted ? "Unmute video" : "Mute video"}
+            className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-ivory/20 hover:bg-ivory/30 text-white flex items-center justify-center backdrop-blur-md transition-all duration-300 border border-white/20 focus-visible:outline-none"
+          >
+            {isMuted ? <VolumeX size={14} /> : <Volume2 size={14} />}
+          </button>
+        </div>
+
+        <div className="flex items-center gap-2">
+          <span className="text-[8px] sm:text-[9px] tracking-[0.25em] text-ivory/80 uppercase font-light">
+            Ivorry Lotus Brand Film
+          </span>
+        </div>
+      </div>
     </div>
   );
 }
@@ -216,7 +303,6 @@ export default function ContinuousPDFViewer({
         setNumPages(pdfDoc.numPages);
         onNumPages(pdfDoc.numPages);
 
-        // Fetch page 1 aspect ratio
         const page1 = await pdfDoc.getPage(1);
         const vp = page1.getViewport({ scale: 1 });
         if (vp.width && vp.height) {
@@ -257,6 +343,12 @@ export default function ContinuousPDFViewer({
           onVisible={handlePageVisible}
         />
       ))}
+
+      {/* Final Brand Film Video Card appended at the end of Presentation 01 */}
+      <Presentation01VideoCard
+        containerWidth={containerWidth}
+        aspectRatio={aspectRatio}
+      />
     </div>
   );
 }
