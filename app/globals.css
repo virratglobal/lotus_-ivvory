@@ -1,26 +1,224 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* ─────────────────────────────────────────────
+   Ivory Lotus & Stitch Brand Identity — Tokens
+───────────────────────────────────────────── */
+@theme {
+  /* Brand palette */
+  --color-ivory:    #F9F6F0;
+  --color-ivory-dark: #F1EDE4;
+  --color-charcoal: #1C1C1A;
+  --color-botanical: #4A5E4A;
+  --color-champagne: #C9A96E;
+
+  /* Stitch Extended Palette */
+  --color-background: #fbf9f8;
+  --color-error: #ba1a1a;
+  --color-error-container: #ffdad6;
+  --color-forest: #22332F;
+  --color-gold: #D4AF37;
+  --color-inverse-on-surface: #f2f0ef;
+  --color-inverse-primary: #b7cbc5;
+  --color-inverse-surface: #303030;
+  --color-on-background: #1b1c1b;
+  --color-on-error: #ffffff;
+  --color-on-error-container: #93000a;
+  --color-on-primary: #ffffff;
+  --color-on-primary-container: #899b96;
+  --color-on-primary-fixed: #0e1f1b;
+  --color-on-primary-fixed-variant: #394a46;
+  --color-on-secondary: #ffffff;
+  --color-on-secondary-container: #436c66;
+  --color-on-secondary-fixed: #00201d;
+  --color-on-secondary-fixed-variant: #244e48;
+  --color-on-surface: #1b1c1b;
+  --color-on-surface-variant: #424846;
+  --color-on-tertiary: #ffffff;
+  --color-on-tertiary-container: #af918a;
+  --color-on-tertiary-fixed: #291712;
+  --color-on-tertiary-fixed-variant: #59413c;
+  --color-outline: #727876;
+  --color-outline-variant: #c2c8c5;
+  --color-primary: #0d1e1a;
+  --color-primary-container: #22332f;
+  --color-primary-fixed: #d3e7e0;
+  --color-primary-fixed-dim: #b7cbc5;
+  --color-sage: #9CB0A5;
+  --color-secondary: #3d6660;
+  --color-secondary-container: #bfebe4;
+  --color-secondary-fixed: #bfebe4;
+  --color-secondary-fixed-dim: #a4cfc8;
+  --color-surface: #fbf9f8;
+  --color-surface-bright: #fbf9f8;
+  --color-surface-container: #efedec;
+  --color-surface-container-high: #e9e8e6;
+  --color-surface-container-highest: #e4e2e1;
+  --color-surface-container-low: #f5f3f2;
+  --color-surface-container-lowest: #ffffff;
+  --color-surface-dim: #dbdad8;
+  --color-surface-tint: #50625d;
+  --color-surface-variant: #e4e2e1;
+  --color-tertiary: #291712;
+  --color-tertiary-container: #402b26;
+  --color-tertiary-fixed: #fedbd3;
+  --color-tertiary-fixed-dim: #e0bfb8;
+
+  /* Typography */
+  --font-sans: "Montserrat", "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Noto Serif", "Cormorant Garamond", Georgia, serif;
+
+  /* Spacing */
+  --spacing-nav: 3.5rem;
+  --spacing-margin-desktop: 80px;
+  --spacing-margin-mobile: 20px;
+  --spacing-container-max: 1440px;
+  --spacing-section-gap: 120px;
+  --spacing-gutter: 32px;
+  --spacing-margin-tablet: 40px;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* Base reset */
+*, *::before, *::after {
+  box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-background);
+  color: var(--color-on-background);
+  font-family: var(--font-sans);
+  font-weight: 300;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Material Symbols Icon font variation */
+.material-symbols-outlined {
+  font-family: 'Material Symbols Outlined', sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+}
+
+/* Stitch Typography Utility Classes */
+.font-display-lg, .font-display-md, .font-headline-lg, .font-headline-md, .font-headline-lg-mobile {
+  font-family: 'Noto Serif', serif;
+}
+.font-body-lg, .font-body-md, .font-label-lg, .font-label-sm {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.text-display-lg {
+  font-size: 64px;
+  line-height: 72px;
+  letter-spacing: -0.02em;
+  font-weight: 300;
+}
+.text-display-md {
+  font-size: 48px;
+  line-height: 56px;
+  letter-spacing: -0.01em;
+  font-weight: 300;
+}
+.text-headline-lg {
+  font-size: 32px;
+  line-height: 40px;
+  font-weight: 400;
+}
+.text-headline-lg-mobile {
+  font-size: 28px;
+  line-height: 36px;
+  font-weight: 400;
+}
+.text-headline-md {
+  font-size: 24px;
+  line-height: 32px;
+  font-weight: 400;
+}
+.text-body-lg {
+  font-size: 18px;
+  line-height: 28px;
+  letter-spacing: 0.01em;
+  font-weight: 300;
+}
+.text-body-md {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+}
+.text-label-lg {
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+}
+.text-label-sm {
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0.05em;
+  font-weight: 500;
+}
+
+/* Stitch Spacing Utilities */
+.p-margin-desktop { padding: 80px; }
+.px-margin-desktop { padding-left: 80px; padding-right: 80px; }
+.py-margin-desktop { padding-top: 80px; padding-bottom: 80px; }
+.p-margin-mobile { padding: 20px; }
+.px-margin-mobile { padding-left: 20px; padding-right: 20px; }
+.p-margin-tablet { padding: 40px; }
+.px-margin-tablet { padding-left: 40px; padding-right: 40px; }
+.max-w-container-max { max-width: 1440px; }
+.py-section-gap { padding-top: 120px; padding-bottom: 120px; }
+.mb-section-gap { margin-bottom: 120px; }
+.top-margin-desktop { top: 80px; }
+.left-margin-desktop { left: 80px; }
+.top-margin-mobile { top: 20px; }
+.left-margin-mobile { left: 20px; }
+
+/* Custom Stitch Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+  animation: fadeIn 1.8s ease-out forwards;
+  opacity: 0;
+}
+.fade-in-delay {
+  animation: fadeIn 1.8s ease-out 0.8s forwards;
+  opacity: 0;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(13, 30, 26, 0.15);
+  border-radius: 3px;
+}
+
+:fullscreen {
+  background: var(--color-charcoal);
+}
+:-webkit-full-screen {
+  background: var(--color-charcoal);
 }

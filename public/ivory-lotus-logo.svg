@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" fill="none">
+  <!-- Outer lotus petals -->
+  <ellipse cx="60" cy="60" rx="6" ry="22" fill="#4A5E4A" opacity="0.15" transform="rotate(0 60 60)"/>
+  <ellipse cx="60" cy="60" rx="6" ry="22" fill="#4A5E4A" opacity="0.15" transform="rotate(45 60 60)"/>
+  <ellipse cx="60" cy="60" rx="6" ry="22" fill="#4A5E4A" opacity="0.15" transform="rotate(90 60 60)"/>
+  <ellipse cx="60" cy="60" rx="6" ry="22" fill="#4A5E4A" opacity="0.15" transform="rotate(135 60 60)"/>
+  <!-- Inner petals -->
+  <ellipse cx="60" cy="60" rx="4" ry="16" fill="#4A5E4A" opacity="0.4" transform="rotate(22.5 60 60)"/>
+  <ellipse cx="60" cy="60" rx="4" ry="16" fill="#4A5E4A" opacity="0.4" transform="rotate(67.5 60 60)"/>
+  <ellipse cx="60" cy="60" rx="4" ry="16" fill="#4A5E4A" opacity="0.4" transform="rotate(112.5 60 60)"/>
+  <ellipse cx="60" cy="60" rx="4" ry="16" fill="#4A5E4A" opacity="0.4" transform="rotate(157.5 60 60)"/>
+  <!-- Center -->
+  <circle cx="60" cy="60" r="6" fill="#4A5E4A" opacity="0.6"/>
+  <circle cx="60" cy="60" r="3" fill="#C9A96E" opacity="0.8"/>
+</svg>
