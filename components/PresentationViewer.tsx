@@ -5,11 +5,8 @@
  * ──────────────────
  * Dual-Experience Luxury Hospitality Presentation Shell.
  *
- * Mobile & Desktop Optimized:
- *  • Responsive top navigation bar with auto-collapsing titles
- *  • Touch-friendly min-h-[44px] interaction targets
- *  • Dynamic viewport-based canvas rendering for Presentation 01 (PDF)
- *  • Proportional 1440px desktop container scale for Presentation 02 (Stitch Webpage)
+ * Desktop Presentation Deck Canvas (75-80% proportional scale with generous outer whitespace)
+ * Mobile & Touch Optimized: zero horizontal overflow, compact switcher, responsive touch controls.
  */
 
 import {
@@ -223,7 +220,7 @@ export default function PresentationViewer() {
               transition={{ duration: 0.3 }}
               className="fixed top-0 left-0 right-0 z-[100] flex items-center justify-between px-3 sm:px-6 md:px-10 h-14 border-b border-charcoal/[0.08] bg-ivory/95 backdrop-blur-md"
             >
-              {/* Left: Ivory Lotus logo */}
+              {/* Left: Ivorry Lotus logo */}
               <button
                 onClick={() => handleSwitch("presentation-01")}
                 className="flex items-center gap-1.5 sm:gap-2.5 focus-visible:outline-none rounded-sm min-h-[40px]"
@@ -351,9 +348,9 @@ export default function PresentationViewer() {
                 animate={{ opacity: 1 }}
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.4 }}
-                className="w-full min-h-full flex justify-center bg-background"
+                className="w-full min-h-full flex flex-col items-center justify-start bg-ivory-dark/25 py-0 md:py-8 lg:py-12 px-0 md:px-6 lg:px-12 transition-all duration-300"
               >
-                <div className="w-full max-w-[1440px] min-h-full relative shadow-sm">
+                <div className="w-full max-w-[1140px] min-h-full relative shadow-none md:shadow-[0_16px_55px_rgba(0,0,0,0.08)] rounded-none md:rounded-xl border-none md:border md:border-charcoal/[0.08] overflow-hidden bg-background">
                   <StitchBrandExperience />
                 </div>
               </motion.div>
